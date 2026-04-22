@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تغير المناخ — أزمة عصرنا</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --earth: #1a3a2a;
+    --forest: #2d6a4f;
+    --moss: #40916c;
+    --leaf: #74c69d;
+    --sky: #b7e4c7;
+    --sand: #f4e9d0;
+    --fire: #e76f51;
+    --sun: #f4a261;
+    --ice: #a8dadc;
+    --deep: #0a1628;
+    --text-dark: #1a1a1a;
+    --text-light: #f8f8f4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--deep);
+    color: var(--text-light);
+    overflow-x: hidden;
+  }
+
+  /* ====== NAVIGATION ====== */
+  nav {
+    position: fixed;
+    top: 0; right: 0; left: 0;
+    z-index: 1000;
+    background: rgba(10, 22, 40, 0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(116,198,157,0.2);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--leaf);
+    letter-spacing: -0.5px;
+  }
+
+  .nav-logo span { color: var(--fire); }
+
+  .nav-links {
+    display: flex;
+    gap: 0.2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(248,248,244,0.7);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--leaf);
+    background: rgba(116,198,157,0.1);
+  }
+
+  /* ====== HERO ====== */
+  #home {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 60% 40%, #0d2b1a 0%, var(--deep) 70%);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 80%, rgba(231,111,81,0.12) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(64,145,108,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(10,22,40,0) 0%, rgba(10,22,40,0.8) 100%);
+  }
+
+  .earth-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(116,198,157,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(116,198,157,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .floating-orbs {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .orb-1 { width: 400px; height: 400px; background: rgba(64,145,108,0.15); top: -100px; right: -100px; animation-delay: 0s; }
+  .orb-2 { width: 300px; height: 300px; background: rgba(231,111,81,0.1); bottom: 0; left: 0; animation-delay: -3s; }
+  .orb-3 { width: 200px; height: 200px; background: rgba(168,218,220,0.1); top: 40%; left: 30%; animation-delay: -6s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.05); }
+  }
+
+  .hero-content {
+    position: relative;
+    text-align: center;
+    max-width: 900px;
+    padding: 2rem;
+    animation: fadeUp 1s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(116,198,157,0.15);
+    border: 1px solid rgba(116,198,157,0.3);
+    color: var(--leaf);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  .hero-title {
+    font-family: 'Cairo', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #ffffff 0%, var(--leaf) 50%, var(--sun) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-weight: 300;
+    color: rgba(248,248,244,0.65);
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 1rem 1.5rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(116,198,157,0.15);
+    border-radius: 12px;
+    min-width: 130px;
+    animation: fadeUp 1s ease forwards;
+  }
+
+  .stat-item:nth-child(2) { animation-delay: 0.1s; }
+  .stat-item:nth-child(3) { animation-delay: 0.2s; }
+
+  .stat-number {
+    font-family: 'Cairo', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--fire);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: rgba(248,248,244,0.5);
+    font-weight: 400;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--moss), var(--forest));
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(64,145,108,0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(64,145,108,0.5);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--leaf);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    border: 1px solid rgba(116,198,157,0.4);
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(116,198,157,0.1);
+    border-color: var(--leaf);
+  }
+
+  /* ====== SECTIONS ====== */
+  section {
+    padding: 6rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    display: inline-block;
+    color: var(--leaf);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    opacity: 0.8;
+  }
+
+  .section-title {
+    font-family: 'Cairo', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+
+  .section-title span { color: var(--leaf); }
+
+  .section-desc {
+    font-size: 1.05rem;
+    color: rgba(248,248,244,0.6);
+    line-height: 1.8;
+    max-width: 700px;
+    margin-bottom: 3rem;
+  }
+
+  /* ====== DIVIDER ====== */
+  .full-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(116,198,157,0.2), transparent);
+    margin: 0;
+  }
+
+  /* ====== PAGE 2: CAUSES ====== */
+  #causes {
+    background: radial-gradient(ellipse at 30% 70%, rgba(26,58,42,0.4) 0%, transparent 60%);
+  }
+
+  .causes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .cause-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(116,198,157,0.12);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cause-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, transparent, var(--leaf), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .cause-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(116,198,157,0.3);
+    background: rgba(255,255,255,0.05);
+  }
+
+  .cause-card:hover::before { opacity: 1; }
+
+  .cause-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .cause-title {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.6rem;
+  }
+
+  .cause-text {
+    font-size: 0.9rem;
+    color: rgba(248,248,244,0.55);
+    line-height: 1.75;
+  }
+
+  .cause-pct {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--sun);
+    font-family: 'Cairo', sans-serif;
+  }
+
+  /* ====== PAGE 3: IMPACTS ====== */
+  #impacts {
+    background: radial-gradient(ellipse at 70% 30%, rgba(231,111,81,0.08) 0%, transparent 60%);
+  }
+
+  .impacts-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    .impacts-layout { grid-template-columns: 1fr; }
+    nav .nav-links { display: none; }
+  }
+
+  .impact-block {
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .impact-block.hot {
+    background: linear-gradient(135deg, rgba(231,111,81,0.1), rgba(244,162,97,0.05));
+    border-color: rgba(231,111,81,0.2);
+  }
+
+  .impact-block.cold {
+    background: linear-gradient(135deg, rgba(168,218,220,0.1), rgba(116,198,157,0.05));
+    border-color: rgba(168,218,220,0.2);
+  }
+
+  .impact-block.flood {
+    background: linear-gradient(135deg, rgba(64,145,108,0.1), rgba(45,106,79,0.05));
+    border-color: rgba(64,145,108,0.2);
+  }
+
+  .impact-block.bio {
+    background: linear-gradient(135deg, rgba(116,198,157,0.1), rgba(183,228,199,0.05));
+    border-color: rgba(116,198,157,0.2);
+  }
+
+  .impact-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+  .impact-title {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+  .impact-text {
+    font-size: 0.88rem;
+    color: rgba(248,248,244,0.6);
+    line-height: 1.75;
+  }
+
+  /* ====== PAGE 4: MAP ====== */
+  #map-section {
+    background: rgba(10,22,40,0.5);
+  }
+
+  .map-container {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(116,198,157,0.2);
+    margin-top: 2rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  .map-container iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    display: block;
+  }
+
+  .map-legend {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    padding: 1.2rem 1.5rem;
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    border: 1px solid rgba(116,198,157,0.1);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: rgba(248,248,244,0.65);
+  }
+
+  .legend-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ====== PAGE 5: SOLUTIONS ====== */
+  #solutions {
+    background: radial-gradient(ellipse at 50% 50%, rgba(26,58,42,0.3) 0%, transparent 70%);
+  }
+
+  .solutions-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .solution-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(116,198,157,0.1);
+    border-radius: 12px;
+    transition: all 0.3s;
+  }
+
+  .solution-item:hover {
+    background: rgba(116,198,157,0.06);
+    border-color: rgba(116,198,157,0.25);
+    transform: translateX(-4px);
+  }
+
+  .solution-num {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: rgba(116,198,157,0.25);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .solution-content h3 {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+
+  .solution-content p {
+    font-size: 0.85rem;
+    color: rgba(248,248,244,0.55);
+    line-height: 1.7;
+  }
+
+  /* ====== SOURCES ====== */
+  #sources {
+    padding: 4rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .sources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .source-card {
+    padding: 1.2rem 1.5rem;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(116,198,157,0.1);
+    border-radius: 10px;
+    transition: border-color 0.2s;
+  }
+
+  .source-card:hover { border-color: rgba(116,198,157,0.3); }
+
+  .source-num {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--leaf);
+    letter-spacing: 1px;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+
+  .source-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(248,248,244,0.8);
+    margin-bottom: 0.2rem;
+  }
+
+  .source-link {
+    font-size: 0.78rem;
+    color: rgba(116,198,157,0.6);
+    text-decoration: none;
+    word-break: break-all;
+    transition: color 0.2s;
+  }
+
+  .source-link:hover { color: var(--leaf); }
+
+  /* ====== FOOTER ====== */
+  footer {
+    background: rgba(255,255,255,0.02);
+    border-top: 1px solid rgba(116,198,157,0.1);
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.82rem;
+    color: rgba(248,248,244,0.35);
+  }
+
+  footer strong { color: var(--leaf); }
+
+  /* ====== DATA TABLE ====== */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+  }
+
+  .data-table th {
+    background: rgba(64,145,108,0.15);
+    color: var(--leaf);
+    padding: 0.8rem 1.2rem;
+    text-align: right;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(116,198,157,0.2);
+  }
+
+  .data-table td {
+    padding: 0.8rem 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: rgba(248,248,244,0.7);
+    vertical-align: top;
+  }
+
+  .data-table tr:hover td {
+    background: rgba(116,198,157,0.04);
+  }
+
+  .data-table .highlight {
+    color: var(--fire);
+    font-weight: 700;
+  }
+
+  /* ====== TEMP VISUAL ====== */
+  .temp-bar-container {
+    margin-top: 2.5rem;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(116,198,157,0.1);
+    border-radius: 14px;
+    padding: 2rem;
+  }
+
+  .temp-bar-title {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: rgba(248,248,244,0.8);
+    margin-bottom: 1.5rem;
+  }
+
+  .temp-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .temp-year {
+    font-size: 0.82rem;
+    color: rgba(248,248,244,0.5);
+    min-width: 50px;
+    text-align: right;
+  }
+
+  .temp-bar-wrap {
+    flex: 1;
+    background: rgba(255,255,255,0.04);
+    border-radius: 4px;
+    height: 22px;
+    overflow: hidden;
+  }
+
+  .temp-bar {
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding-right: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.85);
+    transition: width 1.5s ease;
+  }
+
+  /* ====== SCROLL REVEAL ====== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ====== QUOTE BLOCK ====== */
+  .quote-block {
+    margin: 3rem 0;
+    padding: 2rem 2.5rem;
+    border-right: 4px solid var(--leaf);
+    background: rgba(116,198,157,0.05);
+    border-radius: 0 12px 12px 0;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(248,248,244,0.75);
+    font-style: italic;
+  }
+
+  .quote-source {
+    display: block;
+    margin-top: 0.8rem;
+    font-style: normal;
+    font-size: 0.82rem;
+    color: var(--leaf);
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-logo">🌍 تغير <span>المناخ</span></div>
+  <ul class="nav-links">
+    <li><a href="#home">الرئيسية</a></li>
+    <li><a href="#causes">الأسباب</a></li>
+    <li><a href="#impacts">التأثيرات</a></li>
+    <li><a href="#map-section">الخريطة</a></li>
+    <li><a href="#solutions">الحلول</a></li>
+    <li><a href="#sources">المراجع</a></li>
+  </ul>
+</nav>
+
+<!-- ===== PAGE 1: HERO ===== -->
+<div id="home" style="padding-top:64px; min-height:100vh; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; background:radial-gradient(ellipse at 60% 40%, #0d2b1a 0%, var(--deep) 70%);">
+  <div class="hero-bg"></div>
+  <div class="earth-grid"></div>
+  <div class="floating-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="hero-content">
+    <span class="hero-badge">🌡️ قضية جغرافية عالمية</span>
+    <h1 class="hero-title">تغيّر المناخ</h1>
+    <p class="hero-subtitle">ارتفاع غير مسبوق في درجات الحرارة، وذوبان الجليد، وتطرف مناخي متصاعد — أزمة تُعيد رسم خريطة كوكبنا بشكل لا رجعة فيه.</p>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-number">+1.2°</span>
+        <span class="stat-label">ارتفاع درجة الحرارة منذ 1850</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">420</span>
+        <span class="stat-label">جزء في المليون من CO₂</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">3.7mm</span>
+        <span class="stat-label">ارتفاع سنوي لمستوى البحر</span>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#causes" class="btn-primary">استكشف الأسباب</a>
+      <a href="#impacts" class="btn-secondary">اعرف التأثيرات</a>
+    </div>
+  </div>
+</div>
+
+<div class="full-divider"></div>
+
+<!-- ===== PAGE 2: CAUSES ===== -->
+<section id="causes" class="reveal">
+  <span class="section-tag">الصفحة الثانية</span>
+  <h2 class="section-title">أسباب <span>تغير المناخ</span></h2>
+  <p class="section-desc">يتشكّل تغير المناخ من تضافر عوامل طبيعية وبشرية متراكمة على مدى قرنين من الثورة الصناعية، غير أن الأنشطة البشرية هي المحرّك الرئيسي منذ منتصف القرن العشرين.</p>
+
+  <div class="causes-grid">
+    <div class="cause-card">
+      <span class="cause-icon">🏭</span>
+      <div class="cause-title">حرق الوقود الأحفوري</div>
+      <p class="cause-text">الفحم والنفط والغاز الطبيعي مصدر أكثر من 75% من انبعاثات ثاني أكسيد الكربون العالمية. توليد الكهرباء والنقل يُمثّلان الحصة الأكبر.</p>
+      <span class="cause-pct">75%</span>
+    </div>
+    <div class="cause-card">
+      <span class="cause-icon">🌲</span>
+      <div class="cause-title">إزالة الغابات</div>
+      <p class="cause-text">تُطلق الغابات المُقطّعة كميات ضخمة من الكربون المخزّن، وتُفقد الغلاف الجوي ممتصّاً طبيعياً حيوياً. تُزال نحو 15 مليار شجرة سنوياً.</p>
+      <span class="cause-pct">15%</span>
+    </div>
+    <div class="cause-card">
+      <span class="cause-icon">🐄</span>
+      <div class="cause-title">الزراعة وتربية الحيوانات</div>
+      <p class="cause-text">تُصدر قطعان الماشية غاز الميثان (CH₄) القوي. كما تُطلق الأسمدة النيتروجينية أكسيد النيتروز (N₂O) ذا التأثير الحراري الضخم.</p>
+      <span class="cause-pct">10%</span>
+    </div>
+    <div class="cause-card">
+      <span class="cause-icon">🏗️</span>
+      <div class="cause-title">الصناعة والبناء</div>
+      <p class="cause-text">تُنتج صناعات الأسمنت والصلب والكيماويات كميات هائلة من الانبعاثات. يستهلك قطاع البناء وحده 38% من الطاقة العالمية.</p>
+      <span class="cause-pct">21%</span>
+    </div>
+    <div class="cause-card">
+      <span class="cause-icon">🗑️</span>
+      <div class="cause-title">النفايات وإدارتها</div>
+      <p class="cause-text">تتحلل مكبّات النفايات وتُصدر الميثان، فيما تُساهم مياه الصرف الصحي في انبعاثات أكسيد النيتروز، وكلاهما من الغازات الدفيئة الفتاكة.</p>
+      <span class="cause-pct">3%</span>
+    </div>
+    <div class="cause-card">
+      <span class="cause-icon">🌋</span>
+      <div class="cause-title">عوامل طبيعية</div>
+      <p class="cause-text">التغيرات في مدار الأرض، والنشاط الشمسي، والبراكين تُؤثّر في المناخ. لكن دراسات الـ IPCC تُؤكد أن تأثيرها الصافي الحالي ضئيل مقارنة بالأنشطة البشرية.</p>
+      <span class="cause-pct" style="color:var(--ice);">&lt;1%</span>
+    </div>
+  </div>
+
+  <blockquote class="quote-block">
+    "من المُرجَّح للغاية أن التأثير البشري هو السبب الرئيسي لتغير المناخ المُلاحَظ منذ منتصف القرن العشرين."
+    <span class="quote-source">— الهيئة الحكومية الدولية المعنية بتغير المناخ (IPCC)، التقرير السادس للتقييم 2021</span>
+  </blockquote>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- ===== PAGE 3: IMPACTS ===== -->
+<section id="impacts" class="reveal">
+  <span class="section-tag">الصفحة الثالثة</span>
+  <h2 class="section-title">تأثيرات <span>متعددة الأبعاد</span></h2>
+  <p class="section-desc">لا يقتصر تغير المناخ على ارتفاع الحرارة؛ بل يُعيد تشكيل الأنظمة الجغرافية والبيئية والاجتماعية والاقتصادية بصورة متشابكة.</p>
+
+  <div class="impacts-layout">
+    <div class="impact-block hot">
+      <div class="impact-icon">🔥</div>
+      <div class="impact-title">موجات الحر والجفاف</div>
+      <p class="impact-text">تتضاعف موجات الحر الشديدة في تواترها وشدتها. تعاني مناطق واسعة من أفريقيا وجنوب آسيا من جفاف مطوّل يهدد الأمن الغذائي ويُرغم السكان على النزوح.</p>
+    </div>
+    <div class="impact-block cold">
+      <div class="impact-icon">🧊</div>
+      <div class="impact-title">ذوبان الجليد وارتفاع البحار</div>
+      <p class="impact-text">تفقد القطبان وجبال الألب والهيمالايا جليدها بشكل متسارع. ارتفع مستوى البحر 20 سم منذ عام 1900، ويُهدّد ذلك الدول الجزرية والمدن الساحلية كالإسكندرية وجاكرتا.</p>
+    </div>
+    <div class="impact-block flood">
+      <div class="impact-icon">🌊</div>
+      <div class="impact-title">الفيضانات والعواصف الشديدة</div>
+      <p class="impact-text">يُغذّي المحيط الأدفأ أعاصير أشد عنفاً وهطولاً. تعاني باكستان والصين وأوروبا من فيضانات قياسية متزايدة. تتسع أحواض الفيضان في أودية الأنهار الكبرى.</p>
+    </div>
+    <div class="impact-block bio">
+      <div class="impact-icon">🐠</div>
+      <div class="impact-title">فقدان التنوع البيولوجي</div>
+      <p class="impact-text">يُحدّد تقرير IPBES أن مليون نوع يواجه خطر الانقراض. تبيض الشعاب المرجانية وتموت، فيما تُغير الحيوانات والنباتات مواسمها ومناطق انتشارها بشكل غير مسبوق.</p>
+    </div>
+  </div>
+
+  <!-- Temperature Data Table -->
+  <div class="temp-bar-container reveal" style="margin-top:3rem;">
+    <p class="temp-bar-title">📊 ارتفاع درجة الحرارة العالمية مقارنةً بمتوسط ما قبل الصناعة (°C)</p>
+    <div class="temp-row">
+      <span class="temp-year">1900</span>
+      <div class="temp-bar-wrap"><div class="temp-bar" style="width:15%; background:linear-gradient(90deg,#4895ef,#4895ef);">+0.15</div></div>
+    </div>
+    <div class="temp-row">
+      <span class="temp-year">1950</span>
+      <div class="temp-bar-wrap"><div class="temp-bar" style="width:25%; background:linear-gradient(90deg,#4cc9f0,#4895ef);">+0.25</div></div>
+    </div>
+    <div class="temp-row">
+      <span class="temp-year">1980</span>
+      <div class="temp-bar-wrap"><div class="temp-bar" style="width:45%; background:linear-gradient(90deg,#74c69d,#4cc9f0);">+0.45</div></div>
+    </div>
+    <div class="temp-row">
+      <span class="temp-year">2000</span>
+      <div class="temp-bar-wrap"><div class="temp-bar" style="width:62%; background:linear-gradient(90deg,#f4a261,#74c69d);">+0.62</div></div>
+    </div>
+    <div class="temp-row">
+      <span class="temp-year">2015</span>
+      <div class="temp-bar-wrap"><div class="temp-bar" style="width:87%; background:linear-gradient(90deg,#e76f51,#f4a261);">+0.87</div></div>
+    </div>
+    <div class="temp-row">
+      <span class="temp-year">2023</span>
+      <div class="temp-bar-wrap"><div class="temp-bar" style="width:100%; background:linear-gradient(90deg,#c1121f,#e76f51);">+1.45</div></div>
+    </div>
+  </div>
+
+  <!-- Data Table -->
+  <div style="overflow-x:auto; margin-top:2rem; border-radius:12px; border:1px solid rgba(116,198,157,0.1);">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>المنطقة</th>
+          <th>التأثير الرئيسي</th>
+          <th>مستوى الخطورة</th>
+          <th>الفئة المتضررة</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>شمال أفريقيا والشرق الأوسط</td>
+          <td>جفاف وموجات حر شديدة، شُح مائي</td>
+          <td class="highlight">عالٍ جداً</td>
+          <td>الزراعة وأمن المياه</td>
+        </tr>
+        <tr>
+          <td>جنوب آسيا</td>
+          <td>ذوبان أنهار جليدية، فيضانات مفاجئة</td>
+          <td class="highlight">عالٍ جداً</td>
+          <td>500 مليون نسمة</td>
+        </tr>
+        <tr>
+          <td>المناطق القطبية</td>
+          <td>ذوبان الجليد بمعدل ضعفَي المتوسط العالمي</td>
+          <td class="highlight">حرج</td>
+          <td>النظم البيئية والدب القطبي</td>
+        </tr>
+        <tr>
+          <td>الدول الجزرية المنخفضة</td>
+          <td>ارتفاع مستوى البحر وملوحة المياه الجوفية</td>
+          <td class="highlight">وجودي</td>
+          <td>جزر المالديف وتوفالو</td>
+        </tr>
+        <tr>
+          <td>أوروبا وأمريكا الشمالية</td>
+          <td>حرائق غابات، فيضانات، تراجع التنوع البيولوجي</td>
+          <td style="color:var(--sun); font-weight:700;">متوسط-عالٍ</td>
+          <td>الاقتصاد والبنية التحتية</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- ===== PAGE 4: MAP ===== -->
+<section id="map-section" class="reveal">
+  <span class="section-tag">الصفحة الرابعة</span>
+  <h2 class="section-title">الخريطة <span>التفاعلية</span></h2>
+  <p class="section-desc">استكشف المناطق الأكثر تأثراً بتغير المناخ حول العالم، من بؤر الجفاف في أفريقيا إلى مناطق ذوبان الجليد في القطب الشمالي.</p>
+
+  <div class="map-container">
+    <iframe
+      src="https://maps.google.com/maps?q=20,0&t=k&z=2&ie=UTF8&iwloc=&output=embed"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="خريطة تغير المناخ العالمية">
+    </iframe>
+  </div>
+
+  <div class="map-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#c1121f;"></div> مناطق الجفاف الحاد</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4cc9f0;"></div> مناطق ذوبان الجليد</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#f4a261;"></div> بؤر موجات الحر</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#74c69d;"></div> مناطق الفيضانات المتكررة</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#6a0572;"></div> الدول الأعلى انبعاثاً</div>
+  </div>
+
+  <!-- Key locations -->
+  <div class="causes-grid" style="margin-top:2rem;">
+    <div class="cause-card">
+      <span class="cause-icon">🇸🇦</span>
+      <div class="cause-title">الشرق الأوسط وشمال أفريقيا</div>
+      <p class="cause-text">يُتوقّع أن ترتفع درجات الحرارة بمعدل ضعف المتوسط العالمي. القاهرة وبغداد وكراتشي قد تشهد درجات حرارة تتجاوز 50°C بشكل متكرر بحلول 2050.</p>
+    </div>
+    <div class="cause-card">
+      <span class="cause-icon">🌊</span>
+      <div class="cause-title">المحيط الهندي — جزر المالديف</div>
+      <p class="cause-text">أرخبيل يقع في المتوسط على ارتفاع 1.2 متر فوق سطح البحر. مع الارتفاع المتوقع بنحو 0.5-1 متر بحلول 2100، يُمثّل نموذجاً حياً لأزمة ارتفاع المياه.</p>
+    </div>
+    <div class="cause-card">
+      <span class="cause-icon">🧊</span>
+      <div class="cause-title">القطب الشمالي — غرينلاند</div>
+      <p class="cause-text">فقد الغطاء الجليدي الغرينلاندي 280 مليار طن سنوياً في المتوسط بين 2002-2016. ذوبانه الكامل سيرفع مستوى البحر 7 أمتار.</p>
+    </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- ===== PAGE 5: SOLUTIONS ===== -->
+<section id="solutions" class="reveal">
+  <span class="section-tag">الصفحة الخامسة</span>
+  <h2 class="section-title">الحلول و<span>المسار نحو المستقبل</span></h2>
+  <p class="section-desc">يمتلك العالم التقنيات والحلول اللازمة لمواجهة تغير المناخ. ما يُنقصنا هو الإرادة السياسية والتنسيق الدولي والتحوّل السريع في سلوكيات الإنتاج والاستهلاك.</p>
+
+  <div class="solutions-list">
+    <div class="solution-item">
+      <span class="solution-num">01</span>
+      <div class="solution-content">
+        <h3>التحوّل إلى الطاقة المتجددة</h3>
+        <p>مضاعفة القدرة الإنتاجية من الطاقة الشمسية وطاقة الرياح والمائية بديلاً كاملاً عن الوقود الأحفوري. تراجع تكاليف الألواح الشمسية 90% في العقد الماضي.</p>
+      </div>
+    </div>
+    <div class="solution-item">
+      <span class="solution-num">02</span>
+      <div class="solution-content">
+        <h3>كفاءة الطاقة في المباني والنقل</h3>
+        <p>عزل المباني، والتحوّل للسيارات الكهربائية، ودعم وسائل النقل الجماعي تُخفّض الطلب على الطاقة وتُقلّص الانبعاثات بشكل كبير.</p>
+      </div>
+    </div>
+    <div class="solution-item">
+      <span class="solution-num">03</span>
+      <div class="solution-content">
+        <h3>إعادة التشجير وحماية الغابات</h3>
+        <p>زراعة تريليون شجرة قادرة على امتصاص 200 مليار طن من الكربون. حماية الغابات الاستوائية يُعادل تأثيره إيقاف جميع سيارات العالم.</p>
+      </div>
+    </div>
+    <div class="solution-item">
+      <span class="solution-num">04</span>
+      <div class="solution-content">
+        <h3>تغيير الأنظمة الغذائية</h3>
+        <p>تقليل استهلاك اللحوم وخفض هدر الطعام يُمكنهما خفض انبعاثات قطاع الغذاء بما يصل 70%. الزراعة المستدامة تُعيد بناء التربة.</p>
+      </div>
+    </div>
+    <div class="solution-item">
+      <span class="solution-num">05</span>
+      <div class="solution-content">
+        <h3>تسعير الكربون والسياسات المناخية</h3>
+        <p>فرض ضريبة على انبعاثات الكربون يُحفّز الابتكار ويُعجّل التحوّل. اتفاقية باريس تسعى لإبقاء الاحترار دون 1.5°C.</p>
+      </div>
+    </div>
+    <div class="solution-item">
+      <span class="solution-num">06</span>
+      <div class="solution-content">
+        <h3>التكيّف والبنية التحتية المرنة</h3>
+        <p>بناء مدن مقاومة للفيضانات، وأنظمة زراعية متكيّفة مع الجفاف، وشبكات صحية جاهزة للأوبئة المرتبطة بالاحترار العالمي.</p>
+      </div>
+    </div>
+  </div>
+
+  <blockquote class="quote-block" style="margin-top:3rem;">
+    "لدينا نافذة ضيّقة لاتخاذ قرارات حاسمة تمنع الأضرار المناخية الكارثية. لكن تلك النافذة لا تزال مفتوحة."
+    <span class="quote-source">— أنطونيو غوتيريش، الأمين العام للأمم المتحدة، مؤتمر COP28 دبي 2023</span>
+  </blockquote>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- ===== SOURCES ===== -->
+<section id="sources">
+  <span class="section-tag">المراجع والمصادر</span>
+  <h2 class="section-title">المصادر <span>العلمية الموثّقة</span></h2>
+  <p class="section-desc">اعتمد هذا الموقع على مصادر علمية ومؤسسية موثوقة ومحكّمة من المنظمات الدولية الرائدة في مجال المناخ.</p>
+
+  <div class="sources-grid">
+    <div class="source-card">
+      <span class="source-num">المصدر 01</span>
+      <div class="source-title">الهيئة الحكومية الدولية المعنية بتغير المناخ (IPCC)</div>
+      <a href="https://www.ipcc.ch/report/ar6/wg1/" target="_blank" class="source-link">ipcc.ch/report/ar6/wg1</a>
+    </div>
+    <div class="source-card">
+      <span class="source-num">المصدر 02</span>
+      <div class="source-title">وكالة ناسا للتغيرات المناخية</div>
+      <a href="https://climate.nasa.gov" target="_blank" class="source-link">climate.nasa.gov</a>
+    </div>
+    <div class="source-card">
+      <span class="source-num">المصدر 03</span>
+      <div class="source-title">المنظمة العالمية للأرصاد الجوية (WMO)</div>
+      <a href="https://public.wmo.int/ar" target="_blank" class="source-link">public.wmo.int/ar</a>
+    </div>
+    <div class="source-card">
+      <span class="source-num">المصدر 04</span>
+      <div class="source-title">اتفاقية الأمم المتحدة الإطارية بشأن تغير المناخ</div>
+      <a href="https://unfccc.int/ar" target="_blank" class="source-link">unfccc.int/ar</a>
+    </div>
+    <div class="source-card">
+      <span class="source-num">المصدر 05</span>
+      <div class="source-title">برنامج الأمم المتحدة للبيئة (UNEP)</div>
+      <a href="https://www.unep.org/ar" target="_blank" class="source-link">unep.org/ar</a>
+    </div>
+    <div class="source-card">
+      <span class="source-num">المصدر 06</span>
+      <div class="source-title">مرصد أوربانكليمت — بيانات الاحترار العالمي</div>
+      <a href="https://ourworldindata.org/climate-change" target="_blank" class="source-link">ourworldindata.org/climate-change</a>
+    </div>
+    <div class="source-card">
+      <span class="source-num">المصدر 07</span>
+      <div class="source-title">المركز الأوروبي للتنبؤات الجوية متوسطة المدى</div>
+      <a href="https://climate.copernicus.eu/ar" target="_blank" class="source-link">climate.copernicus.eu</a>
+    </div>
+    <div class="source-card">
+      <span class="source-num">المصدر 08</span>
+      <div class="source-title">قاعدة بيانات الكوارث الدولية (EM-DAT)</div>
+      <a href="https://www.emdat.be" target="_blank" class="source-link">emdat.be</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>موقع تعليمي أُنجز ضمن متطلبات مادة الجغرافيا | <strong>تغير المناخ — أزمة عصرنا</strong></p>
+  <p style="margin-top:0.5rem;">جميع البيانات مستقاة من مصادر علمية موثّقة | © 2024</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Active nav link
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 100) current = sec.id;
+    });
+    navLinks.forEach(link => {
+      link.style.color = link.getAttribute('href') === '#' + current
+        ? 'var(--leaf)' : '';
+    });
+  });
+</script>
+</body>
+</html>
